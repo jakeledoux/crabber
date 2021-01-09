@@ -1,6 +1,15 @@
 import datetime
+import json
 import os
 from typing import List, Set
+
+
+def load_db_info():
+    """ Retrieves database connection parameters from db.json
+    """
+    with open('db.json', 'r') as f:
+        db = json.load(f)
+    return 'mysql+mysqlconnector://{user}:{pass}@{host}/{db}'.format(**db)
 
 
 def load_usernames_from_file(filename: str) -> List[str]:

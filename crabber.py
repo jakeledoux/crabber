@@ -12,7 +12,7 @@ import utils
 app = Flask(__name__, template_folder="./templates")
 app.secret_key = 'crabs are better than birds because they can cut their wings right off'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///CRABBER_DATABASE.db'  # Database location
+app.config['SQLALCHEMY_DATABASE_URI'] = load_db_info()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Max length of user-uploaded files. First number is megabytes.
 db.init_app(app)
